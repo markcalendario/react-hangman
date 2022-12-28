@@ -1,0 +1,608 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  font-size: small;
+}
+
+@font-face {
+  font-family: AmongUs;
+  src: url("../Fonts/amongus.ttf");
+}
+nav {
+  background-color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+nav a {
+  color: #050505;
+  text-decoration: none;
+}
+
+button {
+  padding: 15px 30px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  -webkit-animation: buttonAnimation 1s ease infinite;
+          animation: buttonAnimation 1s ease infinite;
+  transition: 0.3s ease;
+  border: 1px black solid;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+button:hover {
+  filter: brightness(95%);
+  letter-spacing: 10px;
+}
+
+@-webkit-keyframes buttonAnimation {
+  from {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes buttonAnimation {
+  from {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.95);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* For smaller screens: */
+[class*=col-] {
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* BREAK POINTS */
+@media only screen and (min-width: 768px) {
+  /* For Larger Screens: */
+  .container {
+    margin: auto;
+    max-width: 1100px;
+  }
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  /* For Medium Screens (Tablet): */
+  .col-s-1 {
+    width: 8.33%;
+  }
+  .col-s-2 {
+    width: 16.66%;
+  }
+  .col-s-3 {
+    width: 25%;
+  }
+  .col-s-4 {
+    width: 33.33%;
+  }
+  .col-s-5 {
+    width: 41.66%;
+  }
+  .col-s-6 {
+    width: 50%;
+  }
+  .col-s-7 {
+    width: 58.33%;
+  }
+  .col-s-8 {
+    width: 66.66%;
+  }
+  .col-s-9 {
+    width: 75%;
+  }
+  .col-s-10 {
+    width: 83.33%;
+  }
+  .col-s-11 {
+    width: 91.66%;
+  }
+  .col-s-12 {
+    width: 100%;
+  }
+}
+#game-started-screen {
+  background-image: url("../Images/game-background.jpg");
+  min-height: 100vh;
+  background-size: cover;
+}
+.word-blanks {
+  display: flex;
+  border-radius: 5px;
+  color: white;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease;
+  padding: 20px 0;
+}
+.word-blanks h1 {
+  font-size: 70px;
+  -webkit-animation: letterRevealAnim 0.5s forwards;
+          animation: letterRevealAnim 0.5s forwards;
+}
+@media screen and (max-width: 768px) {
+  .word-blanks h1 {
+    font-size: 30px;
+  }
+}
+@-webkit-keyframes letterRevealAnim {
+  from {
+    transform: translateY(20px) scale(0.7) rotateY(180deg);
+  }
+  50% {
+    transform: translateY(0) scale(0.7) rotateY(0);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes letterRevealAnim {
+  from {
+    transform: translateY(20px) scale(0.7) rotateY(180deg);
+  }
+  50% {
+    transform: translateY(0) scale(0.7) rotateY(0);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+.word-blanks > *:not(:last-child) {
+  margin-right: 10px;
+}
+
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 0;
+}
+@-webkit-keyframes keysLoadRevealOnLoad {
+  from {
+    transform: rotateY(180deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes keysLoadRevealOnLoad {
+  from {
+    transform: rotateY(180deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+.alphabet .key-pressable {
+  background-color: white;
+}
+.alphabet .key-pressable:hover {
+  background-color: rgb(255, 179, 0);
+}
+.alphabet .key-discarded {
+  background-color: rgb(219, 0, 7);
+  color: white;
+}
+.alphabet .key-correct {
+  background-color: rgb(0, 128, 81);
+  color: white;
+}
+.alphabet .alphabet-btn {
+  opacity: 0;
+  cursor: pointer;
+  border: 1px black solid;
+  margin-top: 10px;
+  aspect-ratio: 1;
+  display: flex;
+  border-radius: 5px;
+  font-size: 1.5vh;
+  align-items: center;
+  justify-content: center;
+  width: calc(16.6666666667% - 10px);
+  transition: 0.1s ease;
+}
+.alphabet .alphabet-btn:hover {
+  scale: 0.9;
+}
+.alphabet .alphabet-btn:nth-child(1) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
+}
+.alphabet .alphabet-btn:nth-child(2) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.alphabet .alphabet-btn:nth-child(3) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
+}
+.alphabet .alphabet-btn:nth-child(4) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.alphabet .alphabet-btn:nth-child(5) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+.alphabet .alphabet-btn:nth-child(6) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.alphabet .alphabet-btn:nth-child(7) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
+}
+.alphabet .alphabet-btn:nth-child(8) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.alphabet .alphabet-btn:nth-child(9) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.45s;
+          animation-delay: 0.45s;
+}
+.alphabet .alphabet-btn:nth-child(10) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.alphabet .alphabet-btn:nth-child(11) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.55s;
+          animation-delay: 0.55s;
+}
+.alphabet .alphabet-btn:nth-child(12) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.alphabet .alphabet-btn:nth-child(13) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.65s;
+          animation-delay: 0.65s;
+}
+.alphabet .alphabet-btn:nth-child(14) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+.alphabet .alphabet-btn:nth-child(15) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+}
+.alphabet .alphabet-btn:nth-child(16) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.alphabet .alphabet-btn:nth-child(17) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.85s;
+          animation-delay: 0.85s;
+}
+.alphabet .alphabet-btn:nth-child(18) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+.alphabet .alphabet-btn:nth-child(19) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.95s;
+          animation-delay: 0.95s;
+}
+.alphabet .alphabet-btn:nth-child(20) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.alphabet .alphabet-btn:nth-child(21) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1.05s;
+          animation-delay: 1.05s;
+}
+.alphabet .alphabet-btn:nth-child(22) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1.1s;
+          animation-delay: 1.1s;
+}
+.alphabet .alphabet-btn:nth-child(23) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1.15s;
+          animation-delay: 1.15s;
+}
+.alphabet .alphabet-btn:nth-child(24) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+.alphabet .alphabet-btn:nth-child(25) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1.25s;
+          animation-delay: 1.25s;
+}
+.alphabet .alphabet-btn:nth-child(26) {
+  -webkit-animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: keysLoadRevealOnLoad 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+}
+
+@media screen and (min-width: 768px) {
+  .alphabet .alphabet-btn {
+    width: calc(7.6923076923% - 10px);
+  }
+}
+.hang-man-contain {
+  padding: 50px 0;
+  margin: auto;
+  width: 100px;
+}
+.hang-man-contain .hang-man {
+  width: 100%;
+  filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
+  -webkit-animation: hangManHangAnim 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+          animation: hangManHangAnim 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+@-webkit-keyframes hangManFallingAnim {
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+@keyframes hangManFallingAnim {
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes hangManAscendingAnim {
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes hangManAscendingAnim {
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes hangManHangAnim {
+  50% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes hangManHangAnim {
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+body {
+  background-color: #fafafa;
+}
+
+#stats {
+  background-color: black;
+  min-height: 100vh;
+  padding: 50px 0;
+  -webkit-animation: statsShowAnim 1s ease forwards;
+          animation: statsShowAnim 1s ease forwards;
+}
+@-webkit-keyframes statsShowAnim {
+  from {
+    transform: translateY(-100%);
+  }
+}
+@keyframes statsShowAnim {
+  from {
+    transform: translateY(-100%);
+  }
+}
+#stats .container .wrapper {
+  text-align: center;
+}
+#stats .container .wrapper .texts > * {
+  margin: 10px 0;
+}
+#stats .container .wrapper .texts .text-win,
+#stats .container .wrapper .texts .text-lose {
+  font-size: 30px;
+}
+#stats .container .wrapper .texts .text-win,
+#stats .container .wrapper .texts .text-lose,
+#stats .container .wrapper .texts p {
+  font-family: AmongUs;
+}
+#stats .container .wrapper .texts p {
+  color: white;
+  font-size: medium;
+}
+#stats .container .wrapper .texts .text-win {
+  color: rgb(0, 157, 255);
+}
+#stats .container .wrapper .texts .text-lose {
+  color: rgb(219, 0, 7);
+}
+#stats .container .wrapper .stats-images {
+  margin-top: 70px;
+  position: relative;
+}
+#stats .container .wrapper .stats-images .glow {
+  width: 100%;
+  -webkit-animation: fadeAnim 2s ease forwards;
+          animation: fadeAnim 2s ease forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  opacity: 0;
+}
+@-webkit-keyframes fadeAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#stats .container .wrapper .stats-images .sprite-win,
+#stats .container .wrapper .stats-images .sprite-lose {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-animation: fadeAnim 1s ease forwards;
+          animation: fadeAnim 1s ease forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  opacity: 0;
+}
+#stats .container .wrapper .stats-images .sprite-win {
+  width: 100px;
+}
+#stats .container .wrapper .stats-images .sprite-lose {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  #stats .container .wrapper .texts .text-win,
+#stats .container .wrapper .texts .text-lose {
+    font-size: 60px;
+  }
+  #stats .container .wrapper .stats-images {
+    margin-top: 30px;
+  }
+  #stats .container .wrapper .stats-images .sprite-win {
+    width: 200px;
+  }
+  #stats .container .wrapper .stats-images .sprite-lose {
+    width: 80%;
+  }
+}
+#waiting-screen .container .wrapper {
+  text-align: center;
+  padding: 50px 0;
+}
+#waiting-screen .container .wrapper > * {
+  margin: 20px 0;
+}
+#waiting-screen .container .wrapper p {
+  font-size: small;
+}
+#waiting-screen .container .wrapper .hero img {
+  width: 50px;
+}
+#waiting-screen .container .wrapper .hero h1 {
+  padding: 7px 0;
+  font-size: 35px;
+}
+
+@media screen and (min-width: 768px) {
+  #waiting-screen .container .wrapper .hero h1 {
+    font-size: 65px;
+  }
+}/*# sourceMappingURL=main.css.map */

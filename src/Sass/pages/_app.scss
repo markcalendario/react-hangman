@@ -1,0 +1,317 @@
+#game-started-screen {
+  background-image: url('../Images/game-background.jpg');
+  min-height: 100vh;
+  background-size: cover;
+
+  .container {
+    .wrapper {}
+  }
+}
+
+.word-blanks {
+  display: flex;
+  border-radius: 5px;
+  color: $white;
+  justify-content: center;
+  background-color: rgba($color: $black, $alpha: 0.5);
+  transition: 0.3s ease;
+  padding: 20px 0;
+
+  h1 {
+    font-size: 70px;
+    animation: letterRevealAnim .5s forwards;
+
+    @media screen and (max-width: 768px) {
+      & {
+        font-size: 30px;
+      }
+    }
+  }
+
+  @keyframes letterRevealAnim {
+    from {
+      transform: translateY(20px) scale(0.7) rotateY(180deg);
+    }
+
+    50% {
+      transform: translateY(0) scale(0.7) rotateY(0);
+    }
+
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  &>*:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 0;
+
+  @keyframes keysLoadRevealOnLoad {
+    from {
+      transform: rotateY(180deg);
+      opacity: 1;
+    }
+
+    to {
+      transform: rotateY(0deg);
+      opacity: 1;
+    }
+  }
+
+  .key-pressable {
+    background-color: $white;
+
+    &:hover {
+      background-color: $warn;
+    }
+  }
+
+  .key-discarded {
+    background-color: $error;
+    color: $white;
+  }
+
+  .key-correct {
+    background-color: $stable;
+    color: $white;
+  }
+
+  .alphabet-btn {
+    opacity: 0;
+    cursor: pointer;
+    border: 1px $black solid;
+    margin-top: 10px;
+    aspect-ratio: 1;
+    display: flex;
+    border-radius: 5px;
+    font-size: 1.5vh;
+    align-items: center;
+    justify-content: center;
+    width: calc(100%/6 - 10px);
+    transition: 0.1s ease;
+
+    &:hover {
+      scale: .9;
+    }
+
+    @for $i from 1 through 26 {
+      &:nth-child(#{$i}) {
+        animation: keysLoadRevealOnLoad .3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation-delay: $i * .05s;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .alphabet {
+    .alphabet-btn {
+      width: calc(100%/13 - 10px);
+    }
+  }
+}
+
+.hang-man-contain {
+  padding: 50px 0;
+  margin: auto;
+  width: 100px;
+
+  .hang-man {
+    width: 100%;
+    filter: drop-shadow(1px 1px 0 $white) drop-shadow(-1px -1px 0 $white);
+    animation: hangManHangAnim 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  @keyframes hangManFallingAnim {
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes hangManAscendingAnim {
+    to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes hangManHangAnim {
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+body {
+  background-color: $white-1;
+}
+
+#stats {
+  background-color: $black;
+  min-height: 100vh;
+  padding: 50px 0;
+  animation: statsShowAnim 1s ease forwards;
+
+  @keyframes statsShowAnim {
+    from {
+      transform: translateY(-100%);
+    }
+  }
+
+  .container {
+    .wrapper {
+      text-align: center;
+
+      .texts {
+        &>* {
+          margin: 10px 0;
+        }
+
+        .text-win,
+        .text-lose {
+          font-size: 30px;
+        }
+
+        .text-win,
+        .text-lose,
+        p {
+          font-family: AmongUs;
+        }
+
+        p {
+          color: $white;
+          font-size: medium;
+        }
+
+        .text-win {
+          color: $stable-blue;
+        }
+
+        .text-lose {
+          color: $error;
+        }
+      }
+
+      .stats-images {
+        margin-top: 70px;
+        position: relative;
+
+        .glow {
+          width: 100%;
+          animation: fadeAnim 2s ease forwards;
+          animation-delay: 1.5s;
+          opacity: 0;
+        }
+
+        @keyframes fadeAnim {
+          from {
+            opacity: 0;
+          }
+
+          to {
+            opacity: 1;
+          }
+        }
+
+        .sprite-win,
+        .sprite-lose {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          animation: fadeAnim 1s ease forwards;
+          animation-delay: 1s;
+          opacity: 0;
+        }
+
+        .sprite-win {
+          width: 100px;
+        }
+
+        .sprite-lose {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #stats {
+    .container {
+      .wrapper {
+
+        .texts {
+
+          .text-win,
+          .text-lose {
+            font-size: 60px;
+          }
+        }
+
+        .stats-images {
+          margin-top: 30px;
+
+          .sprite-win {
+            width: 200px;
+          }
+
+          .sprite-lose {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+#waiting-screen {
+  .container {
+    .wrapper {
+      text-align: center;
+      padding: 50px 0;
+
+      &>* {
+        margin: 20px 0;
+      }
+
+      p {
+        font-size: small;
+      }
+
+      .hero {
+        img {
+          width: 50px;
+        }
+
+        h1 {
+          padding: 7px 0;
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #waiting-screen {
+    .container {
+      .wrapper {
+        .hero {
+          h1 {
+            font-size: 65px;
+          }
+        }
+      }
+    }
+  }
+}
